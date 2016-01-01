@@ -1,0 +1,92 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+
+\title{群论考试试题}
+\author{艾鑫}
+
+
+\begin{document}
+\maketitle
+\section{有限群：非循环六阶群$G_6^2$}
+六阶群有两种结构，其中一个是循环群
+\begin{equation}
+G_6^1 = \{a,a^2,a^3,a^4,a^5,a^6=e\}
+\end{equation}
+另外一个就是非循环六阶群$G_6^2 = \{e,a,b,c,d,f\}$，其满足下列关系
+\begin{equation}
+a^2=b^2=c^2=e, \quad d^2 = f, \quad f^2 = d, \quad fd = df = e
+\end{equation}
+$G_6^2$的乘法表如下：
+\begin{equation}
+\begin{array}{|c|c|c|c|c|c|c|}
+\hline
+G_6^2 & e & a & b & c & d & f \\
+\hline
+e & e & a & b & c & d & f \\
+\hline
+a & a & e & d & f & b & c \\
+\hline
+b & b & f & e & d & c & a \\
+\hline
+c & c & d & f & e & a & b \\
+\hline
+d & d & c & a & b & f & e \\
+\hline
+f & f & b & c & a & e & d \\
+\hline
+\end{array}
+\end{equation}
+\subsection{$G_6^2$的构造}
+
+$G_6^2$可以通过保持正三角形不变的所有转动对称变换构成，也就是点群$D_3$.正三角形一共有6个对称操作：
+\begin{itemize}
+   \item $e$ 恒等变换
+   \item $c_3^1$,$c_3^2$分别绕中心点$O$逆时针旋转$2\pi/3$和$4\pi/3$角
+   \item $c_{2x}$,$c_{2y}$,$c_{2z}$分别绕$x$,$y$,$z$轴旋转$\pi$角
+\end{itemize}
+在这种构造中,$c_{2x}$,$c_{2y}$,$c_{2z}$对应于$a$,$b$,$c$;$c_3^1$,$c_3^2$对应于$d$,$f$.
+
+$G_6^2$还可以通过置换群$S_3$来构造。置换群的群元有：
+\begin{gather}
+\begin{pmatrix}
+123 \\
+123
+\end{pmatrix} = e, \quad
+\begin{pmatrix}
+123 \\
+213
+\end{pmatrix} = (12), \quad
+\begin{pmatrix}
+123 \\
+132
+\end{pmatrix} = (23) \\
+\begin{pmatrix}
+123 \\
+321
+\end{pmatrix} = (31), \quad
+\begin{pmatrix}
+123 \\
+231
+\end{pmatrix} = (123), \quad
+\begin{pmatrix}
+123 \\
+312
+\end{pmatrix} = (132)
+\end{gather}
+其中$(12),(23),(31)$对应于$a,b,c$; $(123),(132)$对应于$d,f$.
+
+\subsection{$G_6^2$的子群}
+群$G$的子集$H$如果在和群$G$相同的乘法规则下也构成群, 则称$H$为群$G$的子群. 对于任意一个群$G$，群$\{e\}$和群$G$本身一定是$G$的子群. 其他的子群, 叫做真子群或固有子群. 对于六阶非循环群$G_6^2$的真子群有4个：
+\begin{equation}
+H_1 = \{e,a\}, \quad H_2 = \{e,b\}, \quad H_3 = \{e,c\}, \quad H_4 = \{e,d,f\}
+\end{equation}
+要判断一个子集$H$是否是子群，关键要看三个地方：一是要看是否有单位元；二是看是否有逆；三是看是否满足封闭性。结合性的满足是自然的，因为$H$是群$G$的子集，群$G$满足结合律，$H$必然满足结合律。
+\subsection{$G_6^2$的分解}
+
+\subsection{$G_6^2$的不变子群}
+
+\subsection{商群$G_6^2 / H$}
+
+\section{李群与李代数：$\mathrm{SO}(3)$}
+测试2
+\end{document}
