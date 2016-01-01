@@ -80,10 +80,44 @@ $G_6^2$还可以通过置换群$S_3$来构造。置换群的群元有：
 \begin{equation}
 H_1 = \{e,a\}, \quad H_2 = \{e,b\}, \quad H_3 = \{e,c\}, \quad H_4 = \{e,d,f\}
 \end{equation}
-要判断一个子集$H$是否是子群，关键要看三个地方：一是要看是否有单位元；二是看是否有逆；三是看是否满足封闭性。结合性的满足是自然的，因为$H$是群$G$的子集，群$G$满足结合律，$H$必然满足结合律。
+要判断一个子集$H$是否是子群，关键要看三个地方：一是要看是否有单位元；二是看是否有逆；三是看是否满足封闭性。结合性的满足是自然的，因为$H$是群$G$的子集，群$G$满足结合律，$H$必然满足结合律。很容易验证，上面列出的4个子群都满足上述条件。
 \subsection{$G_6^2$的分解}
+群$G$的元素可以按照共轭类或者陪集进行分解。对于群$G$中的两个元素$g_i$,$g_j$,如果存在另一个元素$g\in G$使$g_i = g g_i g^{-1}$成立, 则称$g_i,g_j$是相互共轭的, 用符号$\sim$表示, 记为$g_i \sim g_j$. 共轭具有下列的性质:
+\begin{itemize}
+\item 每个元素都与自身共轭, $g_i \sim g_i$; (反身性)
+\item 如果$g_i \sim g_j$, 则有$g_j \sim g_i$; (对称性)
+\item 如果$g_i \sim g_j$, $g_j \sim g_k$, 则有$g_i \sim g_k$. (传递性)
+\end{itemize}
 
+群$G$内彼此共轭的元素集合构成共轭类,简称类. 群中的每个元素仅属于一个类, 因为如果一个元素同时属于两个类, 那么由于共轭的传递性, 这两个类就可以合并为一个类. 由于单位元仅与自己共轭, 所以单位元自成一类. 通常用记号$[g]$表示群元$g$所在类的元素集合. 对于$G_6^2$有三个类:
+\begin{equation}
+[e] = \{e\}, \quad [a] = \{a, b, c\}, \quad [d] = \{d, f\}
+\end{equation}
+故可以将$G_6^2$按类分解为:
+\begin{equation}
+G_6^2 = [e] \oplus [a] \oplus [d].
+\end{equation}
+
+群还可以按照陪集进行分解, 下面来对陪集仅定义. 设$H \subset G$为群$G$的子群, 令$g_i \in G, g_i \notin H$, 则集合$g_i H = \{g_i h | h \in H\}$称为子群$H$的左陪集. 类似的可以定义子群$H$的右陪集$H g_i$. 一般来说, 左陪集不一定和右陪集相等.对于$G_6^2$, 考虑子群$H_1 = \{e, a\}$, 则有
+\begin{equation}
+b H_1 = \{b, f\}, \quad c H_1 = \{c, d\}, \quad H_1 b = \{b,d\}, \quad H_1 c = \{c, f\}
+\end{equation}
+如果考虑子群$H_2 = \{e, d, f\}$, 则有
+\begin{equation}
+a H_2 = H_2 a = \{a, b, c\}
+\end{equation}
+因此有陪集分解
+\begin{equation}
+\begin{split}
+G_6^2 &= H_1 \oplus b H_1 \oplus c H_1 = H_2 \oplus a H_2 \\
+ &= H_1 \oplus H_1 b \oplus H_1 c = H_2 \oplus H_2 a.
+\end{split}
+\end{equation}
 \subsection{$G_6^2$的不变子群}
+首先给出不变子群的定义. 设$H$是群$G$的一个子群, 如果对任意的$g \in G$都有$gHg^{-1}=H$或$gH = Hg$, 即$H$的每个左陪集和与其对应的右陪集完全相同, 则子群$H$称为群$G$的不变子群或正规子群.%由上一节可知, $G_6^2$的不变子群为$H_2 = \{e, d, f\}$,因为
+\begin{equation}
+a
+\end{equation}
 
 \subsection{商群$G_6^2 / H$}
 
