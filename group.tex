@@ -114,12 +114,39 @@ G_6^2 &= H_1 \oplus b H_1 \oplus c H_1 = H_2 \oplus a H_2 \\
 \end{split}
 \end{equation}
 \subsection{$G_6^2$的不变子群}
-首先给出不变子群的定义. 设$H$是群$G$的一个子群, 如果对任意的$g \in G$都有$gHg^{-1}=H$或$gH = Hg$, 即$H$的每个左陪集和与其对应的右陪集完全相同, 则子群$H$称为群$G$的不变子群或正规子群.%由上一节可知, $G_6^2$的不变子群为$H_2 = \{e, d, f\}$,因为
-\begin{equation}
-a
-\end{equation}
+首先给出不变子群的定义. 设$H$是群$G$的一个子群, 如果对任意的$g \in G$都有$gHg^{-1}=H$或$gH = Hg$, 即$H$的每个左陪集和与其对应的右陪集完全相同, 则子群$H$称为群$G$的不变子群或正规子群. 关于不变子群有一个定理: 如果$H$是群$G$的不变子群,则$H$一定包含群$G$的一些完整的类. 反之, 如果子群$H$包含了群$G$的完整的类, 则$H$一定是群$G$的不变子群. 由这个定理知, $G_6^2$的子群中,子群$H_4 = \{e, d, f\}$完整的包含了群$G$的类$\{e\}, \{d, f\}$, 因此$G_6^2$的不变子群为$H_4 = \{e, d, f\}$.
 
 \subsection{商群$G_6^2 / H$}
+如果群$H$是群$G$的不变子群, 则可将群$G$分解为下列陪集的直和:
+\begin{equation}
+G = H \oplus g_1 H \oplus g_2 H \oplus \cdots \oplus g_{l-1}H,
+\end{equation}
+其中$g_i H = H g_i$. 由此可以定义陪集之间的乘法
+\begin{equation}
+(g_i H)(g_j H) = g_i H g_j H = g_i g_j H H = g_k H.
+\end{equation}
+可以证明,这样定义的乘法是自洽的. 这样商集
+\begin{equation}
+G / H = \{H, g_1 H, g_2 H, \cdots , g_{l-1} H\}
+\end{equation}
+构成阶数为$l = n / n_H$的群, 其中$n_H$为不变子群$H$的阶, 这个群就称为群$G$的商群.
+
+对于群$G_6^2$, 它有不变子群$H = \{e, d, f\}$, 陪集$M = a H = \{a, b, c\}$,商群为
+\begin{equation}
+G_6^2 / H = \{H,M\}
+\end{equation}
+
+\subsection{$G_6^2$的二维表示矩阵}
+
+\subsection{$G_6^2$的不可约表示的正交性}
+
+\subsection{$G_6^2$的特征标的正交性}
+
+\subsection{$G_6^2$的正则表示}
+
+\subsection{$G_6^2$的基础表示}
+
+\subsection{$G_6^2$的特征标表}
 
 \section{李群与李代数：$\mathrm{SO}(3)$}
 测试2
