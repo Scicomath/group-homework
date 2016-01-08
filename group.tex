@@ -170,7 +170,23 @@ G_6^2 / H = \{H,M\}
 \end{equation}
 
 \subsection{$G_6^2$的二维表示矩阵}
+首先给出表示的定义:
+\begin{define}[群的表示]
+如果存在从群$G$到作用在线性向量空间$V$上的算符群$\varGamma_G$的一个同态,即
+\begin{equation}
+g \in G \mapsto \varGamma_g \in \varGamma_G,
+\end{equation}
+其中$\varGamma_g$是与群元对应的算符,满足
+\begin{equation}
+\varGamma_{g_1}\varGamma_{g_2} = \varGamma_{g_1 g_2}
+\end{equation}
+则算符群$\varGamma_G$称为群$G$的一个表示,线性向量空间$V$的维数称为表示的维数.如果这个同态同时也是同构的, 则该表示称为忠实表示.
+\end{define}
 
+如果在$d$维向量空间$V$中选择一组基$\{e_i, i = 1, 2, \cdots, d\}$, 则$\varGamma_g$可以用$d \times d$的矩阵来实现, 具体为
+\begin{equation}
+\varGamma_g e_i = \sum_{j = 1}^{d} e_j D_{ji} (g) \equiv e_j D_{ji}(g), \quad g \in G, i = 1,2, \cdots, d.
+\end{equation}
 \subsection{$G_6^2$的不可约表示的正交性}
 
 \subsection{$G_6^2$的特征标的正交性}
