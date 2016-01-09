@@ -1,7 +1,8 @@
 \documentclass[UTF8]{ctexart}
 \usepackage{amsmath}
 \usepackage{geometry}
-
+\usepackage{bm}
+\usepackage{amssymb}
 \geometry{a4paper,left=3cm,right=3cm}
 \newtheorem{thm}{定理}
 \newtheorem{define}{定义}
@@ -187,8 +188,176 @@ g \in G \mapsto \varGamma_g \in \varGamma_G,
 \begin{equation}
 \varGamma_g e_i = \sum_{j = 1}^{d} e_j D_{ji} (g) \equiv e_j D_{ji}(g), \quad g \in G, i = 1,2, \cdots, d.
 \end{equation}
-\subsection{$G_6^2$的不可约表示的正交性}
 
+下面通过$D_3$来构造$G_6^2$的二维表示矩阵. 考虑由$e_1, e_2$张成的二维空间, 由$D_3$的6个操作导出相应的矩阵表示.
+
+设等边三角形的边长为1, 三个顶角$A, B, C$在所取的二维空间中的坐标为
+\begin{equation}
+A(0, \frac{1}{\sqrt{3}}), \quad B(\frac{1}{2}, -\frac{1}{2\sqrt{3}}), \quad C(-\frac{1}{2}, -\frac{1}{2\sqrt{3}})
+\end{equation}
+
+\begin{itemize}
+\item 恒元: $D(e) =
+  \begin{pmatrix}
+    1 & 0 \\
+    0 & 1 
+  \end{pmatrix}
+$
+\item $c_3^1$: 操作为$A\rightarrow C\rightarrow B$, 设$D(c_3^1) =
+  \begin{pmatrix}
+    a & b \\
+    c & d
+  \end{pmatrix}
+$
+
+由
+\begin{gather}
+  \begin{pmatrix}
+    a & b \\
+    c & d 
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 \\
+    \frac{1}{\sqrt{3}}
+  \end{pmatrix} =
+  \begin{pmatrix}
+    -\frac{1}{2} \\
+    -\frac{1}{2\sqrt{3}}
+  \end{pmatrix} \\
+  \begin{pmatrix}
+    a & b\\
+    c & d
+  \end{pmatrix}
+  \begin{pmatrix}
+    -\frac{1}{2} \\
+    -\frac{1}{2\sqrt{3}}
+  \end{pmatrix} =
+  \begin{pmatrix}
+    \frac{1}{2}\\
+    -\frac{1}{2\sqrt{3}}
+  \end{pmatrix}
+\end{gather}
+导出$a = -\frac{1}{2}, b = -\frac{\sqrt{3}}{2}, c = \frac{\sqrt{3}}{2}, d = -\frac{1}{2}$, 所以
+\begin{equation}
+  D(c_3^1) = \frac{1}{2}
+  \begin{pmatrix}
+    -1 & -\sqrt{3} \\
+    \sqrt{3} & -1
+  \end{pmatrix}
+\end{equation}
+\item $c_3^2$: 操作为$A\rightarrow B\rightarrow C$, 同理有
+  \begin{equation}
+    D(c_3^2) = \frac{1}{2}
+    \begin{pmatrix}
+      -1 & \sqrt{3} \\
+      -\sqrt{3} & -1
+    \end{pmatrix}
+  \end{equation}
+\item $c_{2x}$: 操作为$A \rightarrow A, C \rightarrow B$, 
+  \begin{equation}
+    D(c_{2x}) =
+    \begin{pmatrix}
+      -1 & 0 \\
+      0 & 1
+    \end{pmatrix}
+  \end{equation}
+\item $c_{2y}$: 操作为$B \rightarrow B, A \rightarrow C$, 
+  \begin{equation}
+    D(c_{2y}) = \frac{1}{2}
+    \begin{pmatrix}
+      1 & -\sqrt{3} \\
+      -\sqrt{3} & -1
+    \end{pmatrix}
+  \end{equation}
+\item $c_{2z}$: 操作为$C \rightarrow C, A \rightarrow B$, 
+  \begin{equation}
+    D(c_{2z}) = \frac{1}{2}
+    \begin{pmatrix}
+      1 & \sqrt{3} \\
+      \sqrt{3} & -1
+    \end{pmatrix}
+  \end{equation}
+\end{itemize}
+
+以上即为$G_6^2$的二维表示, 各个元素的特征标为
+\begin{gather}
+  \chi (e) = 2, \quad \chi (c_3^1) = -1, \quad \chi (c_3^2) = -1 \\
+  \chi (c_{2x}) = 0, \quad \chi (c_{2y}) = 0, \quad \chi (c_{2z}) = 0.
+\end{gather}
+其满足表达式
+\begin{equation}
+  \sum_{g\in G} |\chi (g)|^2 = n
+\end{equation}
+其中$n$为群的阶, 因此这个表示为$G_6^2$的不可约表示.
+
+\subsection{$G_6^2$的不可约表示的正交性}
+下面给出广义正交定理:
+\begin{thm}[广义正交定理]
+  设$D^{(p)} (G)$和$D^{(q)} (G)$是$n$阶群$G$的两个不等价不可约幺正表示, 维数分别为$d_p$和$d_q$. 则下列正交关系成立:
+  \begin{equation}
+    \sum_{g\in G} {D_{\mu \nu}^{(p)}}^{*}(g) D_{\mu' \nu'}^{(q)} (g) = \frac{n}{d_p} \delta_{pq} \delta_{\mu \mu'} \delta_{\nu \nu'}
+  \end{equation}
+令$p = q, \mu = \mu', \nu = \nu'$, 得到
+\begin{equation}
+  \sum_{g\in G} |D_{\mu \nu}^{(p)} (g)|^2 = \frac{n}{d_p}.
+\end{equation}
+\end{thm}
+
+对于固定的$(p,\mu,\nu)$值,我们可以将$\left\{ \sqrt{\frac{d_p}{n}} D_{\mu \nu}^{(p)} (g)\right\}$看成是具有$n$个分量的向量$\bm{r}^{(p,\mu,\nu)}$, 其中不同的群元依次对应了向量的不同分量, 不同的$(p, \mu, \nu)$就代表了不同的向量. 则上述方程可以写成向量的正交归一关系
+\begin{equation}
+  {\bm{r}^{p,\mu,\nu}}^{*} \cdot \bm{r}^{p,\alpha,\beta} = \delta_{pq} \delta_{\mu \alpha} \delta_{\nu \beta},
+\end{equation}
+即向量族$\bm{r}^{(p,\mu,\nu)}$彼此是相互正交的.
+
+下面来验证$G_6^2$的不可约表示的正交性. $G_6^2$总共有三个不可约表示, 分别是恒等表示, 非平凡一维表示$\{e, d, f\} \mapsto 1, \{a, b, c\} \mapsto -1$和上一节提到的二维表示. 各元素的矩阵为
+\begin{equation}\footnotesize
+  \begin{array}{|c|c|c|c|c|c|c|}
+   \hline
+     & e & a & b & c & d & f \\
+   \hline
+   D^{(1)} & 1 & 1 & 1 & 1 & 1 & 1\\
+   \hline
+   D^{(2)} & 1 & -1 & -1 & -1 & 1 & 1\\
+   \hline
+   D^{(3)} &
+   \begin{pmatrix}
+     1 & 0 \\
+     0 & 1
+   \end{pmatrix} &
+   \begin{pmatrix}
+     -1 & 0 \\
+     0 & 1
+   \end{pmatrix} & \frac{1}{2}
+   \begin{pmatrix}
+     1 & -\sqrt{3} \\
+     -\sqrt{3} & -1
+   \end{pmatrix} & \frac{1}{2}
+   \begin{pmatrix}
+     1 & \sqrt{3} \\
+     \sqrt{3} & -1
+   \end{pmatrix} & \frac{1}{2}
+   \begin{pmatrix}
+     -1 & -\sqrt{3} \\
+     \sqrt{3} & -1
+   \end{pmatrix} & \frac{1}{2}
+   \begin{pmatrix}
+     -1 & \sqrt{3} \\
+     -\sqrt{3} & -1
+   \end{pmatrix}\\
+   \hline
+  \end{array}
+\end{equation}
+
+广义正交定理表达式为:
+\begin{equation}
+  \sum_{g \in G} {D_{\mu \nu}^{(p)}}^{*} (g) D_{\mu' \nu'}^{(q)} (g) = \frac{n}{d_p} \delta_{pq} \delta_{\mu \nu} \delta_{\mu' \nu'}
+\end{equation}
+由上表直接计算
+\begin{gather}
+  \sum_{g \in G} {D^{(1)}}^{*} (g) D^{(2)} (g) = 0,\quad \sum_{g \in G} {D^{(3)}_{\mu \nu}}^{*} (g) D^{(2)} (g) = 0,\quad \sum_{g \in G} {D^{(3)}_{\mu \nu}}^{*} (g) D^{(1)} (g) = 0, \\
+  \sum_{g \in G} |D^{(1)}|^2 = 6 / 1 = 6,\quad \sum_{g \in G} |D^{(2)}|^2 = 6 / 1 = 6,\quad \sum_{g \in G} |D^{(3)}_{\mu \nu}|^2 = 6 / 2 = 3, 
+\end{gather}
+结果与广义正交定理一致.
 \subsection{$G_6^2$的特征标的正交性}
 
 \subsection{$G_6^2$的正则表示}
@@ -200,3 +369,6 @@ g \in G \mapsto \varGamma_g \in \varGamma_G,
 \section{李群与李代数：$\mathrm{SO}(3)$}
 测试2
 \end{document}
+
+
+
