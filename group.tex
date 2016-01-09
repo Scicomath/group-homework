@@ -359,9 +359,70 @@ $
 \end{gather}
 结果与广义正交定理一致.
 \subsection{$G_6^2$的特征标的正交性}
+下面给出特征标正交定理:
+\begin{thm}[特征标正交定理]
+  群$G$的不等价不可约表示的特征标满足正交关系
+  \begin{equation}
+    \frac{1}{n} \sum_{g \in G} {\chi^{(p)}}^{*} (g) \chi^{(q)} (g) = \delta_{pq}.
+  \end{equation}
+\end{thm}
 
+由于同类元素的特征标相同,可以将求和改为
+\begin{equation}
+  \frac{1}{n} \sum_{i = 1}^{k} k_i {\chi^{(p)}}^{*} ([g_i]) \chi^{(q)}([g_i]) = \delta_{pq},
+\end{equation}
+其中$[g_i]$表示群元$g_i$所在的类, $k_i$是该类所包含的元素数.
+
+如果群$G$有$k$个类, 则对固定的$p$, 可以将$\left\{ \sqrt{k_i/n} \chi^{(p)}([g_i]) \right\}$看成是一个$k$维向量$\bm{r}^{(p)}$, 其中不同的类对应了向量的不同分量, 而不同的不可约表示则代表了不同的向量. 这样, 特征标的正交关系就变成了$k$维空间向量中的正交关系
+\begin{equation}
+  {\bm{r}^{(p)}}^{*} \cdot \bm{r}^{(q)} = \delta_{pq}.
+\end{equation}
+
+下面来验证$G_6^2$的特征标的正交性. $G_6^2$的特征标表为
+\begin{equation}
+  \begin{array}{|c|c|c|c|}
+    \hline
+    G_6^2 & e & 3a & 2d \\
+    \hline
+    \varGamma^{(1)} & 1 & 1 & 1 \\
+    \hline
+    \varGamma^{(2)} & 1 & -1 & 1 \\
+    \hline
+    \varGamma^{(3)} & 2 & 0 & -1 \\
+    \hline
+  \end{array}
+\end{equation}
+
+将特征标带入上式有:
+\begin{gather}
+  (\chi^{(1)}, \chi^{(2)}) : \frac{1}{6} [1\times 1\times 1 + 3\times 1\times (-1) + 2 \times 1 \times 1] = 0, \\
+  (\chi^{(1)}, \chi^{(3)}) : \frac{1}{6} [1\times 1\times 2 + 3\times 1\times 0 + 2 \times 1 \times (-1)] = 0, \\
+  (\chi^{(2)}, \chi^{(3)}) : \frac{1}{6} [1\times 1\times 2 + 3\times (-1)\times 0 + 2 \times 1 \times (-1)] = 0, \\
+  (\chi^{(1)}, \chi^{(1)}) : 1^2 + 3\times 1^2 + 2 \times 1^2 = 6, \\
+  (\chi^{(2)}, \chi^{(2)}) : 1^2 + 3\times (-1)^2 + 2 \times 1^2 = 6, \\
+  (\chi^{(3)}, \chi^{(3)}) : 2^2 + 0 + 2 \times (-1)^2 = 6.
+\end{gather}
 \subsection{$G_6^2$的正则表示}
+由群的封闭性可知,如果将群$G$的$n$个群元看成是$n$维向量空间的基, 即$e_i = g_i \, (i = 1, 2, \cdots, n)$, 同时将群元$g$看成作用在这个向量空间上的算符, 即$\varGamma_g = g (g \in G)$, 则算符对基的作用可以写成
+\begin{equation}
+  \varGamma_g e_i = g g_i = g_j, \quad \{g_i\} \stackrel{g}{\mapsto} \{g_j\}.
+\end{equation}
+上市表明这组基$\{g_i\}$张成的向量空间在算符$g(g \in G)$的作用下不变, 因此可以负载群$G$的一个表示. 这个表示称为正则表示. 为了得出正则表示矩阵, 将上式改写为
+\begin{equation}
+  gg_i = \sum_{k = 1}^{n} g_k D_{ki}^{(c)} (g), \quad \forall g \in G, 
+\end{equation}
+其中正则表示矩阵$D^{(c)}(g)$的定义为
+\begin{equation}
+  D_{ki}^{(c)} (g) =
+  \begin{cases}
+    1, & k = j, \, gg_i = g_j,\\
+    0, & k \neq j, gg_i \neq g_j.
+  \end{cases}
+\end{equation}
 
+可以利用乘法表来构造正则表示的表示矩阵. 有正则表示的定义, 仅当$gg_i = g_j$或$g = g_j g_i^{-1}$时, $D_{ji}^{c} (g) = 1$. 这意味着当$g_j g_i^{-1}$等于$g$时, 表示矩阵$D^{(c)}(g)$的第$j$行, 第$i$列的矩阵元为$1$, 其余矩阵元为$0$.
+
+因此可以构造一个$g_j \sim g_j^{-1}$的乘法表, 然后按照下列规则很容易写出正则表示矩阵$D^{(c)}(g)$: 每当群元$g$在表中某个位置出现时, 就在表示矩阵的相应位置填上$1$, 其余位置则全部填$0$.
 \subsection{$G_6^2$的基础表示}
 
 \subsection{$G_6^2$的特征标表}
