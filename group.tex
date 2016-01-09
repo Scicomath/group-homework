@@ -423,10 +423,243 @@ $
 可以利用乘法表来构造正则表示的表示矩阵. 有正则表示的定义, 仅当$gg_i = g_j$或$g = g_j g_i^{-1}$时, $D_{ji}^{c} (g) = 1$. 这意味着当$g_j g_i^{-1}$等于$g$时, 表示矩阵$D^{(c)}(g)$的第$j$行, 第$i$列的矩阵元为$1$, 其余矩阵元为$0$.
 
 因此可以构造一个$g_j \sim g_j^{-1}$的乘法表, 然后按照下列规则很容易写出正则表示矩阵$D^{(c)}(g)$: 每当群元$g$在表中某个位置出现时, 就在表示矩阵的相应位置填上$1$, 其余位置则全部填$0$.
+
+下面来构造$G_6^2$的正则表示. 首先来构造$g \sim g^{-1}$的乘法表:
+\begin{equation}
+  \begin{array}{|c|c|c|c|c|c|c|}
+   \hline
+     & e & a & b & c & f & d \\
+   \hline
+   e & e & a & b & c & f & d \\
+   \hline
+   a & a & e & d & f & c & b \\
+   \hline
+   b & b & f & e & d & a & c \\
+   \hline
+   c & c & d & f & e & b & a \\
+   \hline
+   d & d & c & a & b & e & f \\
+   \hline
+   f & f & b & c & a & d & e \\
+   \hline
+  \end{array}
+\end{equation}
+从上表可以得到$G_6^2$的正则表示为
+\begin{gather}
+  D^{(c)}(e) =
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 \\
+  \end{pmatrix}, \quad
+  D^{(c}(a) =
+  \begin{pmatrix}
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+  \end{pmatrix}, \\
+  D^{(c)}(b) =
+  \begin{pmatrix}
+    0 & 0 & 1 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 \\
+  \end{pmatrix}, \quad
+  D^{(c}(c) =
+  \begin{pmatrix}
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+  \end{pmatrix}, \\
+  D^{(c)}(d) =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 \\
+  \end{pmatrix}, \quad
+  D^{(c}(f) =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 & 0 & 0 \\
+  \end{pmatrix}.
+\end{gather}
 \subsection{$G_6^2$的基础表示}
+前面的正则表示中负载表示的是群元本身. 实际上也可以用子群$H$的陪集$g_i H$作为基来负载群$G$的表示, 这样得到的表示称为基础表示. 设群$G$可以按子群$H$分解为陪集的直和
+\begin{equation}
+  G = H \oplus g_2 H \oplus \cdots \oplus g_l H = \sum_{i = 1}^{l} g_i H,
+\end{equation}
+其中$g_1 = e$. 由$g(g_i H) = gg_i H = g_j H \in \{g_i H\}$, 可以看到, 陪集$\{g_i H\}$张成的向量空间在群$G$的作用下是不变的, 因而可以负载群$G$的表示. 将上式改写为
+\begin{equation}
+  g(g_i H) = \sum_{k = 1}^{l} (g_k H) D_{ki}^{(d)} (g), \quad i = 1, 2, \cdots, l , g \in G,
+\end{equation}
+其中矩阵$D^{(d)}(g)$定义为
+\begin{equation}
+  D_{ki}^{(d)} (g) =
+  \begin{cases}
+    1, & k = j, gg_i \in g_j H, \\
+    0, & k \neq j,
+  \end{cases}
+\end{equation}
 
+可以用类似正则表示的方法来构造基础表示的表示矩阵. 将$gg_i \in g_j H$改写为
+\begin{equation}
+  g \in g_j H g_i^{-1} = g_j H H g_i^{-1}, 
+\end{equation}
+可以构造乘法表$g_j H \sim H g_i^{-1}$, 则当
+\begin{equation}
+  g \in g_j H H g_i^{-1}
+\end{equation}
+时, 有
+\begin{equation}
+  D_{ji}^{(d)} (g) = 1;
+\end{equation}
+否则
+\begin{equation}
+  D_{ji}^{(d)} (g) = 0.
+\end{equation}
+
+考虑群$G_6^2$的子群$H = \{e, a\}$, 容易计算得到
+\begin{gather}
+  a H = \{e, a\}, \quad b H = \{b, f\}, \quad c H = \{c, d\}, \\
+  H a^{-1} = \{e, a\}, \quad H b^{-1} = \{b, d\}, \quad H c^{-1} = \{c, f\}.
+\end{gather}
+构造乘法表如下:
+\begin{equation}
+  \begin{array}{|c|c|c|c|}
+    \hline
+      & H a^{-1} & H b^{-1} & H c^{-1} \\
+    \hline
+    aH & \{e, a\} & \{b, d\} & \{c, f\} \\
+    \hline
+    bH & \{b, f\} & \{e, c\} & \{a, d\} \\
+    \hline
+    cH & \{c, d\} & \{a, f\} & \{e, b\} \\
+    \hline
+  \end{array}
+\end{equation}
+则很容易从表中得到群$G_6^2$的基础表示矩阵
+\begin{gather}
+  D^{(d)}(e) =
+  \begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 
+  \end{pmatrix}, \quad D^{(d)}(a) = 
+  \begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0 
+  \end{pmatrix}, \quad D^{(d)}(b) =
+  \begin{pmatrix}
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}, \\
+  D^{(d)}(c) =
+  \begin{pmatrix}
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0 
+  \end{pmatrix}, \quad D^{(d)}(d) = 
+  \begin{pmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    1 & 0 & 0 
+  \end{pmatrix}, \quad D^{(d)}(f) =
+  \begin{pmatrix}
+    0 & 0 & 1 \\
+    1 & 0 & 0 \\
+    0 & 1 & 0
+  \end{pmatrix}.
+\end{gather}
 \subsection{$G_6^2$的特征标表}
+前面已经给出了特征标正交关系(行的正交性关系):
+\begin{equation}
+  \frac{1}{n} \sum_{i=1}^k k_i {\chi^{(p)}}^{*} ([g_i]) \chi^{(q)}([g_i]) = \delta_{pq}
+\end{equation}
+它实质上反映的是不等价不可约表示的特征标是正交的. 事实上, 特征标又有另外一个正交定理(列的正交性关系),即
+\begin{equation}
+  \frac{1}{n} \sum_{p} k_i {\chi^{(p)}}^{*} ([g_i]) \chi^{(p)} ([g_j]) = \delta_{ij}.
+\end{equation}
+它实质上反映的是不同共轭类的特征标同样是正交的. 因此我们可以通过这两个定理来确定特征标表.
 
+群$G_6^2$有3类, 由$d_1^2 + d_2^2 + d_3^2 = 6$, 唯一解是$1^2 + 1^2 + 2^2 = 6$, 即$G_6^2$有两个一维表示, 一个二维表示. 两个一维表示中其中一个是恒等表示,另外一个是非平凡一维表示$\{e, d, f\} \mapsto 1, \{a, b, c\} \mapsto -1$, 二维表示就是之前几节提到的二维表示. 由此我们可以写出特征标表的第一行和第一列:
+\begin{equation}
+  \begin{array}{|c|c|c|c|}
+    \hline
+    G_6^2 & \{e\} & \{e, d, f\} & \{e, a\} \\
+    \hline
+    \varGamma^{(1)} & 1 & 1 & 1 \\
+    \hline
+    \varGamma^{(1)} & 1 & x & y \\
+    \hline
+    \varGamma^{(1)} & 2 & z & w \\
+    \hline
+  \end{array}
+\end{equation}
+其余的特征标可以有正交关系得到. 对$G_6^2$有
+\begin{equation}
+  k = 3, \quad k_1 = 1,\quad k_2 = 3,\quad k_3 = 2.
+\end{equation}
+由行的正交关系:
+\begin{gather}
+  \frac{1}{n} \sum_{i=1}^k k_i {\chi^{(1)}}^{*} ([g_i]) \chi^{(2)}([g_i]) = \frac{1}{6} [1\times (1 \times 1) + 3 \times (1 \times x) + 2 \times (1 \times y)] = 0, \\
+  \frac{1}{n} \sum_{i=1}^k k_i {\chi^{(1)}}^{*} ([g_i]) \chi^{(3)}([g_i]) = \frac{1}{6} [1\times (1 \times 2) + 3 \times (1 \times z) + 2 \times (1 \times w)] = 0.
+\end{gather}
+由列的正交关系:
+\begin{gather}
+  \frac{1}{n} \sum_{p=1}^3 k_i {\chi^{(p)}}^{*} (\{e\}) \chi^{(p)}(\{e,d,f\}) = \frac{1}{6} [1\times (1\times 1 + 1 \times x + 2 \times z)] = 0, \\
+  \frac{1}{n} \sum_{p=1}^1 k_i {\chi^{(p)}}^{*} (\{e\}) \chi^{(p)}(\{e, a\}) = \frac{1}{6} [1\times (1 \times 1 + 1 \times y + 2 \times w)] = 0.
+\end{gather}
+由此给出4个方程
+\begin{gather}
+  1 + 3x + 2y = 0, \quad 2 + 3z + 2w = 0, \\
+  1 + x + 2z = 0, \quad 1 + y + 2w = 0.
+\end{gather}
+联立求解发现这个4个方程不完全独立, 无法求解. 再考虑行归一化关系
+\begin{equation}
+  \frac{1}{n} \sum_{i=1}^k k_i {\chi^{(2)}}^{*} ([g_i]) \chi^{(2)}([g_i]) = \frac{1}{6} [1\times (1 \times 1) + 3 \times (x \times x) + 2 \times (y \times y)] = 1,
+\end{equation}
+即有
+\begin{equation}
+  1 + 3x^2 + 2y^2 = 6.
+\end{equation}
+结合前面的方程, 联立求解得
+\begin{equation}
+  x = -1, \quad y = 1, \quad z = 0, \quad w = -1.
+\end{equation}
+最后得到$G_6^2$的特征标表:
+\begin{equation}
+  \begin{array}{|c|c|c|c|}
+    \hline
+    G_6^2 & \{e\} & \{e, d, f\} & \{e, a\} \\
+    \hline
+    \varGamma^{(1)} & 1 & 1 & 1 \\
+    \hline
+    \varGamma^{(1)} & 1 & -1 & 1 \\
+    \hline
+    \varGamma^{(1)} & 2 & 0 & -1 \\
+    \hline
+  \end{array}
+\end{equation}
 \section{李群与李代数：$\mathrm{SO}(3)$}
 测试2
 \end{document}
