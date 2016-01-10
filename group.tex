@@ -831,8 +831,133 @@ $\mathrm{SO}(3)$群的一般群元可以表示为
   [\hat{L}_i,\hat{L}_j] = i \varepsilon_{ijk}\hat{L}_k.
 \end{equation}
 
+\subsection{Lie代数}
+每个Lie群都对应一个Lie代数, 而Lie代数则决定了Lie群单位元附近的局部性质. 因此, 研究Lie代数的结构及其表示对研究Lie群的结构及表示是非常重要的. 下面我们来研究$\mathrm{SO}(3)$的Lie代数.
 
+首先我们给出Lie代数的定义:
+\begin{define}[Lie代数]
+  设$\mathcal{L}$是域$K$(实数域$\mathbf{R}$或复数域$\mathbf{C}$)上的有限线性向量空间, 定义映射
+  \begin{gather}
+    \mathcal{L} \times \mathcal{L} \mapsto \mathcal{L}, \\
+    \bm{x}, \bm{y} \mapsto [x,y], 
+  \end{gather}
+其中方括号运算$[\cdot,\cdot]$称为Lie括号或Lie乘积, 它满足下列条件:
+\begin{enumerate}
+\item 封闭性\quad 在向量空间中取一组基$\{\bm{x}_i, i = 1, 2, \cdots\}$, 对任意的$\bm{x}_i, \bm{x}_j \in \mathcal{L}$, 有
+  \begin{equation}
+    [\bm{x}_i, \bm{x}_j] = c_{ij}^{k}\bm{x}_k \in \mathcal{L}, 
+  \end{equation}
+其中$c_{ij}^k \in K$称为结构常数;
+\item 线性\quad 对任意向量$\bm{x},\bm{y} \in \mathcal{L}, \, \lambda_1, \lambda_2 \in K$, 有
+  \begin{equation}
+    [\bm{x}, \lambda_1\bm{y}_1 + \lambda_1\bm{y}_2] = \lambda_1[\bm{x},\bm{y}_1] + \lambda_2[\bm{x}, \bm{y}_2];
+  \end{equation}
+\item 反对称\quad 对任意向量$\bm{x},\bm{y} \in \mathcal{L}$, 有
+  \begin{equation}
+    [\bm{x}, \bm{y}] = -[\bm{y}, \bm{x}];
+  \end{equation}
+\item Jacobi恒等式\quad 对任意的$\bm{x}, \bm{y}, \bm{z} \in \mathcal{L}$, 有
+  \begin{equation}
+    [\bm{x},[\bm{y},\bm{z}]] + [\bm{y},[\bm{z},\bm{x}]] + [\bm{z},[\bm{x},\bm{y}]]  = 0,
+  \end{equation}
+\end{enumerate}
+则称$\mathcal{L}$是一个Lie代数. $\mathcal{L}$的维数就称为Lie代数的维数, 记为$\dim \mathcal{L}$. 若$\mathcal{L}$定义在实数域$\mathbf{R}$上, 则称为实Lie代数; 若$\mathcal{L}$定义在复数域$\mathbf{C}$上, 则称为复Lie代数.
+\end{define}
 
+$\mathrm{SO}(3)$群的三个无穷小生成元
+\begin{equation}
+  x_1 =
+  \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & -1 & 0
+  \end{pmatrix}, \quad x_2 =
+  \begin{pmatrix}
+    0 & 0 & -1 \\
+    0 & 0 & 0 \\
+    1 & 0 & 0
+  \end{pmatrix}, \quad x_3 =
+  \begin{pmatrix}
+    0 & 1 & 0 \\
+    -1 & 0 & 0 \\
+    0 & 0 & 0
+  \end{pmatrix}
+\end{equation}
+在对易子的运算下构成Lie代数:
+\begin{equation}
+  [x_1,x_2] = - x_3, \quad [x_2,x_3] = - x_1, \quad [x_3,x_1] = -x_2.
+\end{equation}
+这个Lie代数记为$\mathrm{so}(3)$, 其结构常数为
+\begin{equation}
+  c_{ij}^k = - \varepsilon_{ijk}, \quad \varepsilon_{123} = 1.
+\end{equation}
+ 
+同理, $\mathrm{SO}(3)$群的三个无穷小算符
+\begin{equation}
+  \bm{x}_1 = x_2 \frac{\partial}{\partial x_3} - x_3 \frac{\partial}{\partial x_2}, \quad \bm{x}_2 = x_3 \frac{\partial}{\partial x_1} - x_1 \frac{\partial}{\partial x_3}, \quad \bm{x}_3 = x_1 \frac{\partial}{\partial x_2} - x_2 \frac{\partial}{\partial x_1}.
+\end{equation}
+也构成实Lie代数$\mathrm{so}(3)$.
+
+\subsection{伴随表示}
+利用结构常数可以构造Lie代数的一个表示, 即伴随表示. 定义
+\begin{equation}
+  (\mathrm{ad}(\bm{x}_k))_{ij} = c_{kj}^i,
+\end{equation}
+可以证明
+\begin{equation}
+  \mathrm{ad}([\bm{x}_j,\bm{x}_k]) = [\mathrm{ad}(\bm{x}_j), \mathrm{ad}(\bm{x}_k)].
+\end{equation}
+因此$\mathrm{ad}(\bm{x})$构成Lie代数的一个表示, 即伴随表示.
+
+考虑Lie代数$\mathrm{so}(3)$, 有
+\begin{equation}
+  (\mathrm{ad}(\bm{x}_k))_{ij} = c_{kj}^i = -\varepsilon_{kji}.
+\end{equation}
+写成矩阵形式有
+\begin{equation}
+  \mathrm{ad}(\bm{x}_1) =
+  \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & -1 & 0
+  \end{pmatrix}, \quad \mathrm{ad}(\bm{x}_2) =
+  \begin{pmatrix}
+    0 & 0 & -1 \\
+    0 & 0 & 0 \\
+    1 & 0 & 0
+  \end{pmatrix}, \quad \mathrm{ad}(\bm{x}_3) =
+  \begin{pmatrix}
+    0 & 1 & 0 \\
+    -1 & 0 & 0 \\
+    0 & 0 & 0
+  \end{pmatrix}.
+\end{equation}
+
+\subsection{Killing 形式}
+李群的生成元和结构常数随参数的选择而改变, 不代表李代数的本质, 不能用来对李代数分类. 为此定义Killing形式.
+\begin{define}[Killing形式]
+  Lie代数$\mathcal{L}$的任意两个元素$x, y \in \mathcal{L}$的Killing形式$g(x,y)$定义为
+  \begin{equation}
+    g(x,y) = \mathrm{Tr}[\mathrm{ad}(x) \mathrm{ad}(y)],
+  \end{equation}
+其中$\mathrm{ad}(x)$为$x \in \mathcal{L}$的伴随表示矩阵. 取定一组基$\{x_i\}$后, 可得
+\begin{equation}
+  g_{ij}=g(x_i,x_j) = (\mathrm{ad}(x_i))_{kl}(\mathrm{ad}(x_j))_{lk} = c_{il}^kc_{jk}^l.
+\end{equation}
+$g_{ij}$称为Lie代数$\mathcal{L}$的度规张量.
+\end{define}
+
+根据定义, 我们将$\mathrm{so}(3)$Lie代数的伴随表示代入上式可得
+\begin{equation}
+  g_{ij} = -2\delta_{ij}.
+\end{equation}
+
+关于半单Lie代数, 有如下定理.
+\begin{thm}[Cartan判据]
+  Lie代数$\mathcal{L}$是半单的, 当且仅当其Killing形式为非退化的, 即$\det (g_{ij}) \neq 0$.
+\end{thm}
+
+对于$\mathrm{so}(3)$, $\det g = -8 \neq 0$, 因此$\mathrm{so}(3)$是半单的. 又由于单Lie代数的维数必须等于或大于2, $\mathrm{so}(3)$是3维的, 不可能分解为两个单Lie代数的直和, 因此是单Lie代数.
 
 \end{document}
 
