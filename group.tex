@@ -661,7 +661,179 @@ $
   \end{array}
 \end{equation}
 \section{李群与李代数：$\mathrm{SO}(3)$}
-测试2
+\subsection{$\mathrm{SO}(3)$的定义}
+首先我们定义实正交群$\mathrm{O}(n,\mathbf{R}) = \mathrm{O}(n)$. 这是所有$n \times n$构成的群, 即
+\begin{equation}
+  X' = \alpha X, \quad \alpha^{T} \alpha = I.
+\end{equation}
+对正交条件$\alpha^{T} \alpha = I$,取行列式后得
+\begin{equation}
+  \det (\alpha^T \alpha) = (\det \alpha)^2 = 1,
+\end{equation}
+即
+\begin{equation}
+  \det \alpha = \pm 1.
+\end{equation}
+因此正交群$\mathrm{O}(n)$有两个不连通的分支, 一个分支满足$\det \alpha = 1$, 另一个分支满足$\det \alpha = -1$. 满足条件$\det \alpha = 1$的分支记为$\mathrm{SO}(n)$, 这是$\mathrm{O}(n)$群的子群. $\mathrm{SO}(3)$群实际上就是我们熟悉的三维空间转动群.
+\subsection{$\mathrm{SO}(3)$的参数化}
+$\mathrm{SO}(3)$有3个独立参数, 有多种参数化选择. 下面介绍三个参数化方法.
+\subsubsection{方法一:三个平面转动的组合}
+可以将一个转动按如下方式分解, 先绕$x$轴转动$\alpha_1$角, 然后绕$y$轴转动$\alpha_2$角, 最后绕$z$轴转动$\alpha_3$角. 因此有
+\begin{equation}\small
+  \begin{split}
+    &R(\alpha_1, \alpha_2, \alpha_3)\\
+    &= R_z(\alpha_3) R_y (\alpha_2) R_x (\alpha_1) \\
+    & =
+    \begin{pmatrix}
+      \cos \alpha_3 & - \sin \alpha_3 & 0 \\
+      \sin \alpha_3 & \cos \alpha_3 & 0 \\
+      0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+      \cos \alpha_2 & 0 & \sin \alpha_2 \\
+      0 & 1 & 0 \\
+      - \sin \alpha_2 & 0 & \cos \alpha_2
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 & 0 & 0 \\
+      0 & \cos \alpha_1 & -\sin \alpha_1 \\
+      0 & \sin \alpha_1 & \cos \alpha_1
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+      \cos\alpha_2\cos\alpha_3 & -\cos\alpha_1\sin\alpha_3+\sin\alpha_1\sin\alpha_2\cos\alpha_3 & \sin\alpha_1\sin\alpha_3+\cos\alpha_1\sin\alpha_2\cos\alpha_3 \\
+      \cos\alpha_2\sin\alpha_3 & \cos\alpha_1\cos\alpha_3+\sin\alpha_1\sin\alpha_2\sin\alpha_3 & -\sin\alpha_1\cos\alpha_3+\cos\alpha_1\sin\alpha_2\sin\alpha_3 \\
+      -\sin\alpha_2 & \sin\alpha_1\cos\alpha_2 & \cos\alpha_1\cos\alpha_2
+    \end{pmatrix}
+  \end{split}
+\end{equation}
+其中$-\pi \leq \alpha_1, \alpha_2 < \pi, -\pi / 2 \leq \alpha_3 < \pi /2$.
+
+\subsubsection{方法二: 三个独立转动的组合}
+还可以用3个Euler角$\alpha,\beta,\gamma$来参数化$\mathrm{SO}(3)$群, 这可以用如下方法进行. 首先绕$z$轴转动$\alpha$角, 将$(x,y,z)$转到$(x',y',z')$, 然后绕$y'$轴转动$\beta$角, 将$(x',y',z')$转到$(x'',y'',z'')$, 最后绕$z''$轴转动$\gamma$角将$(x'',y'',z'')$转到最终位置完成转动. 因此我们有
+\begin{equation}
+  \begin{split}
+    R(\alpha, \beta, \gamma) &= R_{z''}(\gamma)R_{y'}(\beta)R_{z}(\alpha) \\
+    &= R_{y'}(\beta)R_{z}(\gamma)R_{y'}(\beta)^{-1}R_{y'}(\beta)R_{z}(\alpha) = R_{y'}(\beta)R_{z}(\gamma)R_{z}(\alpha) \\
+    &= R_{z}(\alpha)R_{y}(\beta)R_{z}(\alpha)^{-1}R_{z}(\gamma)R_{z}(\alpha) = R_{z}(\alpha)R_{y}(\beta)R_{z}(\gamma).
+  \end{split}
+\end{equation}
+以上用到了$R_z(\gamma)$和$R_z(\alpha)$对易的事实. 因此, 利用Euler角可以将转动表示为
+\begin{equation}\small
+  \begin{split}
+    R(\alpha, \beta, \gamma) &= R_z(\alpha)R_y(\beta)R_z(\gamma) \\
+    &=
+    \begin{pmatrix}
+      \cos\alpha\cos\beta\cos\gamma - \sin\alpha\sin\gamma & -\cos\alpha\cos\beta\sin\gamma - \sin\alpha\cos\gamma & \cos\alpha\sin\beta \\
+      \sin\alpha\cos\beta\cos\gamma + \cos\alpha\sin\gamma & -\sin\alpha\cos\beta\sin\gamma + \cos\alpha\cos\gamma & \sin\alpha\sin\beta \\
+      -\sin\alpha\cos\gamma & \sin\beta\sin\gamma & \cos\beta
+    \end{pmatrix}
+  \end{split}
+\end{equation}
+其中$0 \leq \alpha, \gamma < 2 \pi, 0 \leq \beta < \pi$.
+
+\subsubsection{方法三: 绕一动轴的"定轴"转动}
+一个转动也可以用转轴$\bm{n}$以及绕转轴转过的角度$\phi$来描写, 而转轴$\bm{n}$可以用两个方向如极角和方位角$(\theta, \psi)$来确定, 因此一个转动也可以用参数$(\theta, \psi, \phi)$来描述, 可以表示为$R_n(\phi)$.
+
+如果$R$是将转轴$\bm{n}$转到$\bm{n}'$的一个转动, 即
+\begin{equation}
+  \bm{n}' = R \bm{n}, 
+\end{equation}
+则有
+\begin{equation}
+  R_{n'}(\phi) = R R_n(\phi) R^{-1}.
+\end{equation}
+这意味着$\mathrm{SO}(3)$群中凡是绕某一个轴转动相同角度$\phi$的操作都属于同一类, 这为计算$\mathrm{SO}(3)$群的特征标提供了很大的方便.
+
+\subsection{$\mathrm{SO}(3)$的无穷小生成元}
+对于$\mathrm{SO}(3)$群, 可以将无穷小形式写成
+\begin{equation}
+  g = I + \varepsilon,
+\end{equation}
+由正交条件$g^Tg = I$即得
+\begin{equation}
+  \varepsilon^T = - \varepsilon, 
+\end{equation}
+其中$\varepsilon$是$3 \times 3$的3参数反对称矩阵, 因而可以写为
+\begin{equation}
+  \varepsilon =
+  \begin{pmatrix}
+    0 & -\alpha_3 & \alpha_2 \\
+    \alpha_3 & 0 & -\alpha_1 \\
+    -\alpha_2 & \alpha_1 & 0
+  \end{pmatrix} = \alpha_1 X_1 + \alpha_2 X_2 + \alpha_3 X_3.
+\end{equation}
+由此可以得到无穷小生成元
+\begin{equation}
+  X_1 =
+  \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -1 \\
+    0 & 1 & 0
+  \end{pmatrix}, \quad X_2 =
+  \begin{pmatrix}
+    0 & 0 & 1 \\
+    0 & 0 & 0 \\
+    -1 & 0 & 0 
+  \end{pmatrix}, \quad X_3 =
+  \begin{pmatrix}
+    0 & -1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 0
+  \end{pmatrix}.
+\end{equation}
+
+直接计算给出对易关系
+\begin{equation}
+  [X_1, X_2] = X_1 X_2 - X_2 X_1 = X_3, \quad [X_2,X_3]=X_1, \, [X_3,X_1] = X_2.
+\end{equation}
+上式可以统一写成
+\begin{equation}
+  [X_i,X_j] = \varepsilon_{ijk}X_k,
+\end{equation}
+其中$\varepsilon_{ijk}$是三阶全反对称张量, 满足$\varepsilon_{123} = 1$.
+
+$\mathrm{SO}(3)$群的一般群元可以表示为
+\begin{equation}
+  g(\alpha_1, \alpha_2, \alpha_3) = \exp (\alpha_1 X_1 + \alpha_2 X_2 + \alpha_3 X_3).
+\end{equation}
+
+\subsection{$\mathrm{SO}(3)$的无穷小算符}
+下面来求$\mathrm{SO}(3)$群的无穷小算符. 对$\mathrm{SO}(3)$群,由
+\begin{equation}
+  \varepsilon =
+  \begin{pmatrix}
+    0 & -\alpha_3 & \alpha_2 \\
+    \alpha_3 & 0 & -\alpha_1 \\
+    -\alpha_2 & \alpha_1 & 0
+  \end{pmatrix},
+\end{equation}
+可得
+\begin{equation}
+  \begin{cases}
+    dx_1 = -\alpha_3x_2 + \alpha_2x_3 = U_{\lambda,1}(x)\alpha_\lambda, \\
+    dx_2 = \alpha_3x_1 - \alpha_1x_3 = U_{\lambda,2}(x)\alpha_\lambda, \\
+    dx_3 = -\alpha_2x_1 + \alpha_1x_2 = U_{\lambda,3}(x)\alpha_\lambda.
+  \end{cases}
+\end{equation}
+容易得到无穷小算符
+\begin{gather}
+  \hat{X}_1 = U_{1,i}(x)\frac{\partial}{\partial x_i} = x_2 \frac{\partial}{\partial x_3} - x_3 \frac{\partial}{\partial x_2} = i \hat{L}_1, \\
+  \hat{X}_2 = U_{2,i}(x)\frac{\partial}{\partial x_i} = x_3 \frac{\partial}{\partial x_1} - x_1 \frac{\partial}{\partial x_3} = i \hat{L}_2, \\
+  \hat{X}_3 = U_{3,i}(x)\frac{\partial}{\partial x_i} = x_1 \frac{\partial}{\partial x_2} - x_2 \frac{\partial}{\partial x_1} = i \hat{L}_3, \\
+\end{gather}
+满足对易关系
+\begin{equation}
+  [\hat{X}_1, \hat{X}_2] = -\hat{X}_3, \quad[\hat{X}_2, \hat{X}_3] = -\hat{X}_1, \quad[\hat{X}_3, \hat{X}_1] = -\hat{X}_2.
+\end{equation}
+算符$\hat{L}_i$正是角动量算符, 满足
+\begin{equation}
+  [\hat{L}_i,\hat{L}_j] = i \varepsilon_{ijk}\hat{L}_k.
+\end{equation}
+
+
+
+
 \end{document}
 
 
