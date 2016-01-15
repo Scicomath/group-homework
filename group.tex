@@ -1,5 +1,6 @@
 \documentclass[UTF8]{ctexart}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{geometry}
 \usepackage{bm}
 \usepackage{amssymb}
@@ -958,6 +959,98 @@ $g_{ij}$称为Lie代数$\mathcal{L}$的度规张量.
 \end{thm}
 
 对于$\mathrm{so}(3)$, $\det g = -8 \neq 0$, 因此$\mathrm{so}(3)$是半单的. 又由于单Lie代数的维数必须等于或大于2, $\mathrm{so}(3)$是3维的, 不可能分解为两个单Lie代数的直和, 因此是单Lie代数.
+
+\subsection{单根与Dynkin图}
+为了找出所有的半单李代数, 需要把无穷小算符之间的对易关系写成一种标准形式, 以便分类, 即下面所谓的Cartan分解. 
+
+Cartan考虑了本征值问题
+\begin{equation}
+  [\bm{A}, \bm{X}] = \rho \bm{X}, 
+\end{equation}
+其中$\rho$为相应的本征值. 而$\bm{A}$和$\bm{X}$都是Lie代数基$\{\bm{x}_i\}$的线性组合, 具体写为
+\begin{equation}
+  \bm{A} = a^i\bm{x}_i, \quad \bm{X} = b^i \bm{x}_i.
+\end{equation}
+将上式带入本征方程后得
+\begin{equation}
+  a^i b^j c_{ij}^k \bm{x}_k = \rho b^k \bm{x}_k.
+\end{equation}
+由于基$\{\bm{x}_i\}$是一组线性无关的向量, 因此得
+\begin{equation}
+  (a^i c_{ij}^k - \rho \delta_j^k)b^j = 0.
+\end{equation}
+这一方程有非零解的条件为
+\begin{equation}\label{jiuqi}
+  \det (|a^i c_{ij}^k - \rho \delta_j^k|) = 0.
+\end{equation}
+对于$r$维Lie代数$\mathcal{L}$, 久期方程\eqref{jiuqi}是$\rho$的$r$次方程, 在复数域上有$r$个解, 每个解称为Lie代数$\mathcal{L}$的一个根. 因此$r$维Lie代数有$r$个根. 但是可能有重根. Cartan证明, 可以选择$\bm{A}$, 使重根数最少, 并且对半单Lie代数来说, 重根只发生在$\rho = 0$的情形. 下面我们给出秩的定义.
+\begin{define}[秩]
+  如果$\rho=0$的根是$l$重简并的, 则$l$称为半单Lie代数$\mathcal{L}$的秩.
+\end{define}
+
+对应根$\rho = 0$, 有$l$个线性无关的本证向量$\bm{H}_i$, 满足
+\begin{equation}
+  [\bm{A}, \bm{H}_i] = 0, \quad i = 1, 2, \cdots, l,
+\end{equation}
+其余的$r-l$个向量$\bm{E}_\alpha$都对应不同的根, 即
+\begin{equation}
+  [\bm{A}, \bm{E}_\alpha] = \alpha \bm{E}_\alpha.
+\end{equation}
+由于$\bm{H}_i$彼此对易, 即
+\begin{equation}
+  [\bm{H}_i, \bm{H}_j] = 0, \quad i,j = 1, 2, \cdots, l,
+\end{equation}
+则集合$\{\bm{H}_i, i = 1, 2, \cdots, l\}$构成Lie代数$\mathcal{L}$的一个$l$维Abel子代数, 通常称为$\mathcal{L}$的Cartan子代数, 记为$\mathcal{H}$.
+
+对于$\mathrm{so}(3)$代数, 结构常数为$c_{ij}^k = - \varepsilon_{ijk} = \varepsilon_{ikj}$, 取$\bm{A} = a^i \bm{x}_i,\, \bm{X} = b^i\bm{x}_i$. 久期方程为
+\begin{equation}
+  \begin{vmatrix}
+    -\rho & a^3 & -a^2 \\
+    -a^3 & -\rho & a^1 \\
+    a^2 & -a^1 & -\rho
+  \end{vmatrix} = 0.
+\end{equation}
+解得:
+\begin{equation}
+  \rho = 0, \quad \rho = \pm i \sqrt{(a^1)^2 + (a^2)^2 + (a^3)^2}
+\end{equation}
+若选择
+\begin{equation}
+  a^1 = a^2 = 0, \quad a^3 = i \alpha, 
+\end{equation}
+则根$\rho = 0, \pm \alpha$. 将各值带入本征值方程, 可得
+\begin{gather}
+  \rho = 0: \quad b^1 = b^2 = 0, \quad \bm{H} = b^3 \bm{x}_3 \\
+  \rho = \pm \alpha: \quad b^3 = 0, b^2 = \pm i b^1, \quad \bm{E}_{\pm\alpha} = b^1(x_1\pm ix_2)
+\end{gather}
+式中$b^1, b^3$是任意常数. 显然有$[\bm{A}, \bm{E}_{\pm\alpha}] = \pm \bm{E}_{\pm\alpha}$.
+
+\subsection{正则基}
+可以将半单Lie代数$\mathcal{L}$的对易关系写成如下标准形式:
+\begin{equation}
+  \left\{
+  \begin{lgathered}
+    [\bm{H}_i, \bm{H}_j] = 0, \quad i,j = 1, 2, \cdots, l, \\
+    [\bm{H}_i, \bm{E}_\alpha] = \alpha_i \bm{E}_\alpha,  \\
+    [\bm{E}_\alpha, \bm{E}_\alpha] = N_{\alpha, \beta} = N_{\alpha, \beta} \bm{E}_{\alpha+\beta}, \quad \alpha + \beta \neq 0.\\
+    [\bm{E}_\alpha , \bm{E}_{-\alpha}] = \alpha^i \bm{H}_i.
+  \end{lgathered}
+  \right.
+\end{equation}
+这组基通常称为Cartan-Weyl基, 或称为正则基. 对$\mathrm{so}(3)$和$\mathrm{su}(2)$代数, 它们的秩为1, 若一个根向量为$\alpha = \rho e_1$, 则另一个根向量为$-\rho e_1$选择适当的归一化条件, 使得$g_{\alpha, -\alpha} = 1$, 即取
+\begin{equation}
+  \rho \rho + (-\rho)(-\rho) = 1
+\end{equation}
+所以$\rho = 1/\sqrt{2}$, 故标准基为
+\begin{equation}
+  \bm{E}_{1/\sqrt{2}} = \frac{1}{\sqrt{2}} e_1, \quad \bm{H}, \quad \bm{E}_{-1/\sqrt{2}} = -\frac{1}{\sqrt{2}} e_1
+\end{equation}
+正则对易关系为
+\begin{equation}
+  [\bm{H}, \bm{E}_{\pm 1/\sqrt{2}}] = \pm \frac{1}{\sqrt{2}} \bm{E}_{\pm 1 /\sqrt{2}},\quad [\bm{E}_{1/\sqrt{2}}, \bm{E}_{- 1/\sqrt{2}}] = \frac{1}{\sqrt{2}} \bm{H}
+\end{equation}
+
+
 
 \end{document}
 
